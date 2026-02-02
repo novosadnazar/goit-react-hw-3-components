@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Profile } from "./components/Profile/Profile";
+import { Statistics } from './components/Statistics/Statistics';
+import { Section } from "./components/Section/Section";
+import { FriendList } from "./components/FriendList/FriendList";
+import { TransactionHistory } from "./components/TransactionHistory/TransactionHistory";
+import friends from "./friends.json";
+import  transactions  from "./transactions.json";
+import user from "./user.json";
+import data from "./data.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Profile user={user} />
+
+      <Section title="Upload stats">
+        <Statistics data={data} />
+      </Section>
+
+      <FriendList friend={friends} />
+
+      <TransactionHistory items={transactions} />
+    </>
   );
 }
 
